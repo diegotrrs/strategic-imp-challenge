@@ -1,167 +1,139 @@
 import { Characteristic } from "./characteristics-mapper";
 
-export type MappingCharacteristics = {
+type MappingCharacteristic = {
   name: Characteristic["name"];
   value?: Characteristic["value"];
-};
+}
 
-export type MappingsSourceTargets = {
-  sources: MappingCharacteristics[];
-  targets: MappingCharacteristics[];
-};
+export type Mappings = {
+  supplierToGateaway?: {
+    source: MappingCharacteristic,
+    target: MappingCharacteristic,
+  }[];
+  gateawayToSupplier?: {
+    source: MappingCharacteristic,
+    target: MappingCharacteristic,
+  }[];
+}
 
-type MappingsEntry = {
-  id: string;
-  mappings: {
-    supplierToGateaways?: MappingsSourceTargets[];
-    gateawayToSuppliers?: MappingsSourceTargets[];
-  };
-};
-
-const mappings: MappingsEntry[] = [
-  {
-    id: "SupplierA",
-    mappings: {
-      supplierToGateaways: [
+type MappingsEntry = Record<string, Mappings>
+ 
+const mappings: MappingsEntry = {
+    "SupplierA": {
+      supplierToGateaway: [
         {
-          sources: [
-            {
-              name: "LINE_ID",
-            },
-          ],
-          targets: [
-            {
-              name: "IDENTIFIER",
-            },
-          ],
+          source: {
+            name: "LINE_ID"
+          },
+          target: {
+            name: "IDENTIFIER"
+          }
         },
         {
-          sources: [
-            {
-              name: "LINE_PROFILE",
-              value: "1",
-            },
-          ],
-          targets: [
-            {
-              name: "PROFILE",
-              value: "1AB",
-            },
-          ],
+          source: {
+            name: "LINE_PROFILE",
+            value: "1",
+          },
+          target: {
+            name: "PROFILE",
+            value: "1AB",
+          }
         },
       ],
-      gateawayToSuppliers: [
+      gateawayToSupplier: [
         {
-          sources: [
-            {
-              name: "IDENTIFIER",             
-            },
-          ],
-          targets: [
-            {
-              name: "LINE_ID",
-            },
-          ],
+          source: {
+            name: "IDENTIFIER",
+          },
+          target: {
+            name: "LINE_ID",
+          }
         },
         {
-          sources: [
-            {
-              name: "PROFILE",
-              value: "1AB",
-            },
-          ],
-          targets: [
-            {
-              name: "LINE_PROFILE",
-              value: "1",
-            },
-          ],
+          source: {
+            name: "PROFILE",
+            value: "1AB",
+          },
+          target: {
+            name: "LINE_PROFILE",
+            value: "1"
+          }
         },
       ],
     },
-  },
-  {
-    id: "SupplierB",
-    mappings: {
-      supplierToGateaways: [
+    "SupplierB": {
+      supplierToGateaway: [
         {
-          sources: [
-            {
-              name: "LINE_PROFILE",
-              value: "1",
-            },
-          ],
-          targets: [
-            {
-              name: "LINE_PROFILE",
-              value: "ABC/123",
-            },
-          ],
-        },
+          source: {
+            name: "LINE_PROFILE",
+            value: "1",
+          },
+          target: {
+            name: "LINE_PROFILE",
+            value: "ABC/123",
+          }
+        },        
       ],
-      gateawayToSuppliers: [
+      gateawayToSupplier: [
         {
-          sources: [
-            {
-              name: "LINE_PROFILE",
-              value: "CDE/123",
-            },
-          ],
-          targets: [
-            {
-              name: "LINE_PROFILE",
-              value: "2",
-            },
-          ],
-        },
+          source: {
+            name: "LINE_PROFILE",
+            value: "CDE/123",
+          },
+          target: {
+            name: "LINE_PROFILE",
+            value: "2",
+          }
+        },        
       ],
-    },
-  },
-  {
-    id: "SupplierC",
-    mappings: {
-      supplierToGateaways: [
+    },      
+    "SupplierC": {
+      supplierToGateaway: [
         {
-          sources: [
-            {
-              name: "LINE_PROFILE",
-              value: "1",
-            },
-          ],
-          targets: [
-            {
-              name: "UPSTREAM",
-              value: "12",
-            },
-            {
-              name: "DOWNSTREAM",
-              value: "1000",
-            },
-          ],
+          source: {
+            name: "LINE_PROFILE",
+            value: "1",
+          },
+          target: {
+            name: "UPSTREAM",
+            value: "12",
+          }
         },
-      ],
-      gateawayToSuppliers: [
         {
-          sources: [
-            {
-              name: "UPSTREAM",
-              value: "12",
-            },
-            {
-              name: "DOWNSTREAM",
-              value: "1000",
-            },
-          ],
-          targets: [
-            {
-              name: "LINE_PROFILE",
-              value: "1",
-            },
-          ],
-        },
+          source: {
+            name: "LINE_PROFILE",
+            value: "1",
+          },
+          target: {
+            name: "DOWNSTREAM",
+            value: "1000",
+          }
+        },  
       ],
-    },
-  },
-];
+      gateawayToSupplier: [
+        {
+          source: {
+            name: "UPSTREAM",
+            value: "12",
+          },
+          target: {
+            name: "LINE_PROFILE",
+            value: "1",
+          }
+        },
+        {
+          source: {
+            name: "DOWNSTREAM",
+            value: "1000",
+          },
+          target: {
+            name: "LINE_PROFILE",
+            value: "1",
+          }
+        }, 
+      ],
+    },  
+  }
+;
 
 export default mappings;
