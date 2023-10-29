@@ -52,19 +52,19 @@ describe('Mapping from Gateway to Supplier', () => {
     ]);
   });
 
-  // it('should pass characteristics through if no mapping rules exist for the supplier', async () => {
-  //   const gatewayCharacteristics = [
-  //     { name: 'LINE_ID', value: '12345' }, // SupplierX has no mapping rules
-  //     { name: 'LINE_PROFILE', value: '1' },
-  //   ];
+  it('should pass characteristics through if no mapping rules exist for the supplier', async () => {
+    const gatewayCharacteristics = [
+      { name: 'LINE_ID', value: '12345' }, // SupplierX has no mapping rules
+      { name: 'LINE_PROFILE', value: '1' },
+    ];
 
-  //   const mappedSupplierCharacteristics = await mapGatewayCharacteristics(
-  //       gatewayCharacteristics,
-  //     'SupplierX'
-  //   );
+    const mappedSupplierCharacteristics = await mapGatewayCharacteristics(
+        gatewayCharacteristics,
+      'SupplierX'
+    );
 
-  //   assert.deepStrictEqual(mappedSupplierCharacteristics, gatewayCharacteristics);
-  // });
+    assert.deepStrictEqual(mappedSupplierCharacteristics, gatewayCharacteristics);
+  });
 });
 
 describe('Mapping from Supplier to Gateway', () => {
@@ -102,33 +102,33 @@ describe('Mapping from Supplier to Gateway', () => {
     ]);
   });
 
-  // it('should map many to 1 supplier characteristics to gateway characteristics', async () => {
-  //   const supplierCharacteristics = [
-  //     { name: 'UPSTREAM', value: '12' }, // SupplierC has 1-many mapping for these characteristic
-  //     { name: 'DOWNSTREAM', value: '1000' },
-  //   ];
+  it('should map many to 1 supplier characteristics to gateway characteristics', async () => {
+    const supplierCharacteristics = [
+      { name: 'UPSTREAM', value: '12' }, // SupplierC has 1-many mapping for these characteristic
+      { name: 'DOWNSTREAM', value: '1000' },
+    ];
 
-  //   const mappedGatewayCharacteristics = await mapSupplierCharacteristics(
-  //     supplierCharacteristics,
-  //     'SupplierC'
-  //   );
+    const mappedGatewayCharacteristics = await mapSupplierCharacteristics(
+      supplierCharacteristics,
+      'SupplierC'
+    );
 
-  //   assert.deepStrictEqual(mappedGatewayCharacteristics, [
-  //     { name: 'LINE_PROFILE', value: '1' },
-  //   ]);
-  // });
+    assert.deepStrictEqual(mappedGatewayCharacteristics, [
+      { name: 'LINE_PROFILE', value: '1' },
+    ]);
+  });
 
-  // it('should pass characteristics through if no mapping rules exist for the supplier', async () => {
-  //   const supplierCharacteristics = [
-  //     { name: 'LINE_ID', value: '54321' }, // SupplierX has no mapping rules
-  //     { name: 'LINE_PROFILE', value: '3' },
-  //   ];
+  it('should pass characteristics through if no mapping rules exist for the supplier', async () => {
+    const supplierCharacteristics = [
+      { name: 'LINE_ID', value: '54321' }, // SupplierX has no mapping rules
+      { name: 'LINE_PROFILE', value: '3' },
+    ];
 
-  //   const mappedGatewayCharacteristics = await mapSupplierCharacteristics(
-  //       supplierCharacteristics,
-  //     'SupplierX'
-  //   );
+    const mappedGatewayCharacteristics = await mapSupplierCharacteristics(
+        supplierCharacteristics,
+      'SupplierX'
+    );
 
-  //   assert.deepStrictEqual(mappedGatewayCharacteristics, supplierCharacteristics);
-  // });
+    assert.deepStrictEqual(mappedGatewayCharacteristics, supplierCharacteristics);
+  });
 });
