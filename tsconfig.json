@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es6",
+    "incremental": true,
+    "composite": true,
+    "declaration": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "lib": [
+      "es2021",
+      "dom"
+    ],
+    "downlevelIteration": true
+  }
+}
