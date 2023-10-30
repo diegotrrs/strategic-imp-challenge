@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "test": "mocha --require ts-node/register src/tests/characteristics-mapper-test.ts",
-    "start": "ts-node --transpile-only src/index.ts"
+    "dev": "ts-node --transpile-only src/index.ts",
+    "build": "tsc",
+    "start": "node ./dist/index.js"
   },
   "devDependencies": {
     "@types/chai": "^4.3.9",
