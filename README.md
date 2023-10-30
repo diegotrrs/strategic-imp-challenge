@@ -126,7 +126,7 @@ npm install
 
 > The following step is only required if you want to test the Mappings Api, it's not required to run the tests.
 
-Rename the .env.example file to .env and replace its contents with the .env provided via email
+Rename the .env.example file to .env and replace its contents with the values in the link provided separately.
 
 ## 2.3 IP Address
 
