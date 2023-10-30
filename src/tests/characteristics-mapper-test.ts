@@ -2,7 +2,7 @@ import { assert } from 'chai';
 import { mapSupplierCharacteristics, mapGatewayCharacteristics } from '../characteristics-mapper';
 import * as cacheModule from '../cache'; // Import the cache module
 import sinon from 'sinon'
-import testMappings from './mappings-test-data';
+import testMappings from './mappings-data-example';
 
 // For the tests create a stub for getMappingsFromCache so the test mappings data is returned
 const getMappingsWrapperStub = sinon.stub(cacheModule, 'getMappingsFromCache');

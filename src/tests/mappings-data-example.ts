@@ -1,10 +1,11 @@
 
 // Mock Mappings used in the tests.
+
 const testMappings = [
   {
     _id: "SupplierA",
     mappings: {
-      supplierToGateaway: [
+      gateawayToSupplier: [
         {
           source: {
             name: "LINE_ID",
@@ -24,7 +25,7 @@ const testMappings = [
           },
         },
       ],
-      gateawayToSupplier: [
+      supplierToGateaway: [
         {
           source: {
             name: "IDENTIFIER",
@@ -49,7 +50,7 @@ const testMappings = [
   {
     _id: "SupplierB",
     mappings: {
-      supplierToGateaway: [
+      gateawayToSupplier: [
         {
           source: {
             name: "LINE_PROFILE",
@@ -61,7 +62,7 @@ const testMappings = [
           },
         },
       ],
-      gateawayToSupplier: [
+      supplierToGateaway: [
         {
           source: {
             name: "LINE_PROFILE",
@@ -78,31 +79,31 @@ const testMappings = [
   {
     _id: "SupplierC",
     mappings: {
-      supplierToGateaway: [
-        {
-          source: {
-            name: "LINE_PROFILE",
-            value: "1",
-          },
-          target: {
-            name: "UPSTREAM",
-            value: "12",
-          },
-        },
-        {
-          source: {
-            name: "LINE_PROFILE",
-            value: "1",
-          },
-          target: {
-            name: "DOWNSTREAM",
-            value: "1000",
-          },
-        },
-      ],
       gateawayToSupplier: [
         {
           source: {
+            name: "LINE_PROFILE",
+            value: "1",
+          },
+          target: {
+            name: "UPSTREAM",
+            value: "12",
+          },
+        },
+        {
+          source: {
+            name: "LINE_PROFILE",
+            value: "1",
+          },
+          target: {
+            name: "DOWNSTREAM",
+            value: "1000",
+          },
+        },
+      ],
+      supplierToGateaway: [
+        {
+          source: {
             name: "UPSTREAM",
             value: "12",
           },
@@ -122,6 +123,21 @@ const testMappings = [
           },
         },
       ],
+    },
+  },
+  {
+    _id: "TalkTalk",
+    mappings: {
+      supplierToGateaway: [
+        {
+          source: {
+            name: "TALK_TALK_ID",            
+          },
+          target: {
+            name: "IDENTIFIER",            
+          },
+        },        
+      ],  
     },
   },
 ];

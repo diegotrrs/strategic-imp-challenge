@@ -70,9 +70,9 @@ const performMappings = async (
 export const mapGatewayCharacteristics: CharacteristicsMapper = async (
   characteristics,
   supplier
-) => performMappings(characteristics, supplier, MappingType.SUPPLIER_TO_GATEWAY)
+) => performMappings(characteristics, supplier, MappingType.GATEWAY_TO_SUPPLIER)
   
 export const mapSupplierCharacteristics: CharacteristicsMapper = async (
   characteristics,
   supplier
-) => performMappings(characteristics, supplier, MappingType.GATEWAY_TO_SUPPLIER);
+) => performMappings(characteristics, supplier, MappingType.SUPPLIER_TO_GATEWAY);
