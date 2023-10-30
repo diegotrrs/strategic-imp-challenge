@@ -157,7 +157,7 @@ getMappingsWrapperStub.returns(testMappings);
 ## 3.2 Locally
 Start the app by running:
 ```
-npm run start
+npm run dev
 ```
 
 > Remember to have shared your IP address.
