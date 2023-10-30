@@ -6,7 +6,7 @@ The mappings configuration is defined as a JSON object. An example of this can b
 
 Each supplier can have two mappings (supplierToGateaway and gateawayToSupplier) in each one you simply define the mapping relations as ``source`` and ``target``. For example, the following structure defines a mapping defined for name and value between LINE_PROFILE and PROFILE.
 
-```json
+```
 {
     source: {
       name: "LINE_PROFILE",
