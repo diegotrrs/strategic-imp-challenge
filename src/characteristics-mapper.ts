@@ -1,5 +1,6 @@
+import { getMappingsFromCache } from "./cache";
 
-import mappings from "./mappings";
+//import mappings from "./mappings";
 export interface Characteristic {
   name: string;
   value: string;
@@ -27,7 +28,9 @@ const performMappings = async (
   supplierId: string,
   mappingType: string
 ) => {
-  const supplierMappings = mappings[supplierId];
+  // The mappings are read from the in-memory cache. The cache is updated when there are changes in the mappings stored in the DB.
+  const mappings = getMappingsFromCache()
+  const supplierMappings = mappings.find(m => m._id === supplierId)?.mappings
 
   if (!supplierMappings) {
     return characteristics;

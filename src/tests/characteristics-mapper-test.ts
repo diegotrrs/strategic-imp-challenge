@@ -1,7 +1,15 @@
 import { assert } from 'chai';
-import { mapSupplierCharacteristics, mapGatewayCharacteristics } from './characteristics-mapper.ts';
+import { mapSupplierCharacteristics, mapGatewayCharacteristics } from '../characteristics-mapper.ts';
+import * as cacheModule from '../cache.ts'; // Import the cache module
+import sinon from 'sinon'
+import testMappings from './mappings-test-data.ts';
+
+// For the tests create a stub for getMappingsFromCache so the test mappings data is returned
+const getMappingsWrapperStub = sinon.stub(cacheModule, 'getMappingsFromCache');
+getMappingsWrapperStub.returns(testMappings);
 
 describe('Mapping from Gateway to Supplier', () => {
+
   it('should map gateway characteristics to supplier characteristics where mappings exist', async () => {
     const gatewayCharacteristics = [
       { name: 'LINE_ID', value: '12345' }, // SupplierA has mapping for this characteristic name

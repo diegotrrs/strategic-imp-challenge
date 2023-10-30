@@ -1,33 +1,17 @@
-import { Characteristic } from "./characteristics-mapper";
 
-type MappingCharacteristic = {
-  name: Characteristic["name"];
-  value?: Characteristic["value"];
-}
-
-export type Mappings = {
-  supplierToGateaway?: {
-    source: MappingCharacteristic,
-    target: MappingCharacteristic,
-  }[];
-  gateawayToSupplier?: {
-    source: MappingCharacteristic,
-    target: MappingCharacteristic,
-  }[];
-}
-
-type MappingsEntry = Record<string, Mappings>
- 
-const mappings: MappingsEntry = {
-    "SupplierA": {
+// Mock Mappings used in the tests.
+const testMappings = [
+  {
+    _id: "SupplierA",
+    mappings: {
       supplierToGateaway: [
         {
           source: {
-            name: "LINE_ID"
+            name: "LINE_ID",
           },
           target: {
-            name: "IDENTIFIER"
-          }
+            name: "IDENTIFIER",
+          },
         },
         {
           source: {
@@ -37,7 +21,7 @@ const mappings: MappingsEntry = {
           target: {
             name: "PROFILE",
             value: "1AB",
-          }
+          },
         },
       ],
       gateawayToSupplier: [
@@ -47,7 +31,7 @@ const mappings: MappingsEntry = {
           },
           target: {
             name: "LINE_ID",
-          }
+          },
         },
         {
           source: {
@@ -56,12 +40,15 @@ const mappings: MappingsEntry = {
           },
           target: {
             name: "LINE_PROFILE",
-            value: "1"
-          }
+            value: "1",
+          },
         },
       ],
     },
-    "SupplierB": {
+  },
+  {
+    _id: "SupplierB",
+    mappings: {
       supplierToGateaway: [
         {
           source: {
@@ -71,8 +58,8 @@ const mappings: MappingsEntry = {
           target: {
             name: "LINE_PROFILE",
             value: "ABC/123",
-          }
-        },        
+          },
+        },
       ],
       gateawayToSupplier: [
         {
@@ -83,11 +70,14 @@ const mappings: MappingsEntry = {
           target: {
             name: "LINE_PROFILE",
             value: "2",
-          }
-        },        
+          },
+        },
       ],
-    },      
-    "SupplierC": {
+    },
+  },
+  {
+    _id: "SupplierC",
+    mappings: {
       supplierToGateaway: [
         {
           source: {
@@ -97,7 +87,7 @@ const mappings: MappingsEntry = {
           target: {
             name: "UPSTREAM",
             value: "12",
-          }
+          },
         },
         {
           source: {
@@ -107,8 +97,8 @@ const mappings: MappingsEntry = {
           target: {
             name: "DOWNSTREAM",
             value: "1000",
-          }
-        },  
+          },
+        },
       ],
       gateawayToSupplier: [
         {
@@ -119,7 +109,7 @@ const mappings: MappingsEntry = {
           target: {
             name: "LINE_PROFILE",
             value: "1",
-          }
+          },
         },
         {
           source: {
@@ -129,11 +119,11 @@ const mappings: MappingsEntry = {
           target: {
             name: "LINE_PROFILE",
             value: "1",
-          }
-        }, 
+          },
+        },
       ],
-    },  
-  }
-;
+    },
+  },
+];
 
-export default mappings;
+export default testMappings;
