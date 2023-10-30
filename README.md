@@ -20,7 +20,7 @@ Each supplier can have two mappings (supplierToGateaway and gateawayToSupplier) 
 ```
 1 to many gateway characteristics to supplier characteristics are defined as consecutive entries with the same **source**:
 
-```json
+```
 gateawayToSupplier: [
   {
     source: {
@@ -78,7 +78,7 @@ The implementation for the mapping functions in both ways can be found in `src/c
 If we needed to map the characteristic TalkTalk's ID (``TALK_TALK_ID``) to the general Gateway's ID (``IDENTIFIER``) the following mapping would take of the transformation:
 
 
-```json
+```
  {
     _id: "TalkTalk",
     mappings: {
@@ -163,13 +163,13 @@ npm run dev
 > Remember to have shared your IP address.
 
 You can retrieve all mappings by running the following command.
-```
+```bash
 curl --location 'http://localhost:3000/mappings'
 ```
 
 You can insert a new mapping by running the following command (replace 'TalkTalk' with the supplierId and the mappings with the payload)
 
-```
+```bash
 curl --location 'http://localhost:3000/TalkTalk/mappings' \
 --header 'Content-Type: application/json' \
 --data '{
